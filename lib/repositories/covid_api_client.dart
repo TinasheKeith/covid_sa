@@ -1,7 +1,9 @@
-import 'package:covid_sa/models/models.dart';
-import 'package:http/http.dart' as http;
-import 'package:flutter/foundation.dart';
 import 'dart:convert';
+
+import 'package:flutter/foundation.dart';
+
+import 'package:http/http.dart' as http;
+import 'package:covid_sa/models/models.dart';
 
 class CovidApiClient {
   final String _baseUrl = "https://api.covid19api.com";
