@@ -1,11 +1,15 @@
+import 'package:covid_sa/config_reader.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Welcome Home!"),
+        title: Text(
+          Provider.of<String>(context),
+        ),
       ),
     );
   }
