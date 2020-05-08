@@ -9,6 +9,7 @@ class HomeScreen extends StatelessWidget {
         title: Text(
           Provider.of<String>(context),
         ),
+        centerTitle: true,
       ),
     );
   }
