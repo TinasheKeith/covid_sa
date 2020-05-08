@@ -1,4 +1,3 @@
-import 'package:covid_sa/config_reader.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
