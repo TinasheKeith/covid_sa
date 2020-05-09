@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
-
-import 'package:covid_sa/ui/screens/screens.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:google_fonts/google_fonts.dart';
+
+import 'package:covid_sa/blocs/blocs.dart';
+import 'package:covid_sa/ui/screens/screens.dart';
 
 class App extends StatelessWidget {
   final Color primaryColor = Color(0xFFEB5252);
@@ -15,6 +17,8 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+
     return MaterialApp(
       title: "CovidSA",
       theme: ThemeData(
@@ -22,6 +26,9 @@ class App extends StatelessWidget {
         canvasColor: canvasColor,
         cardColor: cardColor,
         textTheme: GoogleFonts.ralewayTextTheme().copyWith(
+          bodyText1: GoogleFonts.raleway().copyWith(color: Colors.white),
+          bodyText2: GoogleFonts.raleway()
+              .copyWith(color: Colors.white, fontWeight: FontWeight.bold),
           headline6: GoogleFonts.raleway().copyWith(
             color: cardFontColor,
             fontWeight: FontWeight.bold,
