@@ -17,8 +17,6 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
-
     return MaterialApp(
       title: "CovidSA",
       theme: ThemeData(
@@ -32,6 +30,12 @@ class App extends StatelessWidget {
           headline6: GoogleFonts.raleway().copyWith(
             color: cardFontColor,
             fontWeight: FontWeight.bold,
+          ),
+          caption: GoogleFonts.raleway().copyWith(
+            color: Colors.white54,
+            fontWeight: FontWeight.bold,
+            fontSize: 12,
+            
           ),
           subtitle2: GoogleFonts.raleway().copyWith(
             color: cardFontColor,

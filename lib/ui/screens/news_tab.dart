@@ -1,3 +1,5 @@
+import 'package:covid_sa/models/models.dart';
+import 'package:covid_sa/ui/widgets/info_card.dart';
 import 'package:flutter/material.dart';
 
 import 'package:covid_sa/blocs/blocs.dart';
@@ -15,7 +17,22 @@ class _NewsTabState extends State<NewsTab> {
     return BlocBuilder<NewsBloc, NewsState>(
       builder: (context, state) {
         if (state is NewsLoaded) {
-          return FlutterLogo();
+          final NewsArticles newsArticles = state.newsArticles;
+
+          return ListView.builder(
+            itemCount: newsArticles.articles.length,
+            itemBuilder: (BuildContext context, int i) {
+              return InfoCard(
+                title: newsArticles.articles[i].title,
+                subtitle: newsArticles.articles[i].source.name,
+                content: Center(
+                  child: FlutterLogo(
+                    size: 128,
+                  ),
+                ),
+              );
+            },
+          );
         }
         if (state is NewsLoading) {
           return Center(
