@@ -8,7 +8,7 @@ import 'package:covid_sa/blocs/blocs.dart';
 class NewsBloc extends Bloc<NewsEvent, NewsState> {
   final NewsRepository newsRepository;
 
-  NewsBloc({@required this.newsRepository});
+  NewsBloc({@required this.newsRepository}) : assert(newsRepository != null);
 
   @override
   NewsState get initialState => NewsEmpty();

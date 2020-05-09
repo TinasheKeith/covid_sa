@@ -9,7 +9,7 @@ import 'package:covid_sa/models/models.dart';
 class CovidBloc extends Bloc<CovidStatsEvent, CovidStatsState> {
   final CovidRepository covidRepository;
 
-  CovidBloc({@required this.covidRepository});
+  CovidBloc({@required this.covidRepository}) : assert(covidRepository != null);
 
   @override
   CovidStatsState get initialState => CovidStatsEmpty();
