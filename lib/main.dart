@@ -35,7 +35,6 @@ class App extends StatelessWidget {
             color: Colors.white54,
             fontWeight: FontWeight.bold,
             fontSize: 12,
-            
           ),
           subtitle2: GoogleFonts.raleway().copyWith(
             color: cardFontColor,

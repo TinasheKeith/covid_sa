@@ -1,4 +1,5 @@
 import 'package:covid_sa/models/models.dart';
+import 'package:covid_sa/ui/widgets/flare_animations/no_wifi.dart';
 import 'package:covid_sa/ui/widgets/info_card.dart';
 import 'package:flutter/material.dart';
 
@@ -18,7 +19,6 @@ class _NewsTabState extends State<NewsTab> {
       builder: (context, state) {
         if (state is NewsLoaded) {
           final NewsArticles newsArticles = state.newsArticles;
-
           return ListView.builder(
             itemCount: newsArticles.articles.length,
             itemBuilder: (BuildContext context, int i) {
@@ -41,14 +41,14 @@ class _NewsTabState extends State<NewsTab> {
         }
         if (state is NewsError) {
           return Center(
-            child: Text("ERRORRR"),
+            child: NoWifi(),
           );
         }
-        return Center(
-          child: RaisedButton(
+        return Text(
+          "ERROR WITH STATE",
+          style: TextStyle(
             color: Colors.white,
-            onPressed: () {},
-            child: Text("Fetch"),
+            fontSize: 80,
           ),
         );
       },
