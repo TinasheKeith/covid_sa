@@ -1,11 +1,12 @@
-import 'package:covid_sa/models/models.dart';
-import 'package:covid_sa/ui/widgets/flare_animations/no_wifi.dart';
-import 'package:covid_sa/ui/widgets/info_card.dart';
+import 'package:covid_sa/ui/widgets/app_webview.dart';
 import 'package:flutter/material.dart';
 
-import 'package:covid_sa/blocs/blocs.dart';
-
 import 'package:flutter_bloc/flutter_bloc.dart';
+
+import 'package:covid_sa/blocs/blocs.dart';
+import 'package:covid_sa/models/models.dart';
+import 'package:covid_sa/ui/widgets/image_card.dart';
+import 'package:covid_sa/ui/widgets/flare_animations/no_wifi.dart';
 
 class NewsTab extends StatefulWidget {
   @override
@@ -13,6 +14,15 @@ class NewsTab extends StatefulWidget {
 }
 
 class _NewsTabState extends State<NewsTab> {
+  openArticleUrl(String url) async {
+    Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (BuildContext context) =>
+            AppWebView(url: url),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<NewsBloc, NewsState>(
@@ -22,14 +32,11 @@ class _NewsTabState extends State<NewsTab> {
           return ListView.builder(
             itemCount: newsArticles.articles.length,
             itemBuilder: (BuildContext context, int i) {
-              return InfoCard(
+              return NetworkImageCard(
                 title: newsArticles.articles[i].title,
                 subtitle: newsArticles.articles[i].source.name,
-                content: Center(
-                  child: FlutterLogo(
-                    size: 128,
-                  ),
-                ),
+                urlToImage: newsArticles.articles[i].urlToImage,
+                onTap: () => openArticleUrl(newsArticles.articles[i].url),
               );
             },
           );

@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-
 import 'package:google_fonts/google_fonts.dart';
 
-import 'package:covid_sa/blocs/blocs.dart';
 import 'package:covid_sa/ui/screens/screens.dart';
 
 class App extends StatelessWidget {
