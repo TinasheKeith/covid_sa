@@ -1,3 +1,4 @@
+import 'package:covid_sa/ui/screens/home_tab.dart';
 import 'package:covid_sa/ui/screens/news_tab.dart';
 import 'package:covid_sa/ui/screens/stats_tab.dart';
 import 'package:flutter/material.dart';
@@ -67,7 +68,7 @@ class _HomeScreenState extends State<HomeScreen>
       body: TabBarView(
         controller: _tabController,
         children: <Widget>[
-          Center(),
+          HomeTab(),
           StatsTab(),
           NewsTab(),
           Center(),
