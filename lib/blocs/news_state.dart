@@ -10,8 +10,6 @@ abstract class NewsState extends Equatable {
   List<Object> get props => [];
 }
 
-class NewsEmpty extends NewsState {}
-
 class NewsLoading extends NewsState {}
 
 class NewsLoaded extends NewsState {

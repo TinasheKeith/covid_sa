@@ -32,7 +32,7 @@ void main() {
 
     group("News Requested", () {
       blocTest(
-        "emits [NewsEmpty, NewsLoading and NewsLoaded] when news request added and succeeds",
+        "emits [NewsLoading and NewsLoaded] when news request added and succeeds",
         build: () async {
           when(newsRepository.getNewsArticles()).thenAnswer((_) async => news);
           return newsBloc;
@@ -40,8 +40,8 @@ void main() {
         act: (bloc) => bloc.add(FetchNews()),
         skip: 0,
         expect: [
-          NewsEmpty(),
-          NewsLoading(),
+          NewsLoading(), // initial value
+          NewsLoading(), // FetchNews event will yield another NewsLoading Event
           NewsLoaded(
             newsArticles: news,
           )

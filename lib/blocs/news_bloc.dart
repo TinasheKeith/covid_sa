@@ -8,10 +8,12 @@ import 'package:covid_sa/blocs/blocs.dart';
 class NewsBloc extends Bloc<NewsEvent, NewsState> {
   final NewsRepository newsRepository;
 
-  NewsBloc({@required this.newsRepository}) : assert(newsRepository != null);
+  NewsBloc({@required this.newsRepository}) : assert(newsRepository != null) {
+    add(FetchNews());
+  }
 
   @override
-  NewsState get initialState => NewsEmpty();
+  NewsState get initialState => NewsLoading();
 
   @override
   Stream<NewsState> mapEventToState(NewsEvent event) async* {
