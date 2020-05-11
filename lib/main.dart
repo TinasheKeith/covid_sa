@@ -10,7 +10,7 @@ class App extends StatelessWidget {
   final Color cardColor = Color(0xFF242535);
   final Color cardFontColor = Color(0xFF54556E);
 
-  final double borderRadius = 12;
+  final double borderRadius = 8;
 
   @override
   Widget build(BuildContext context) {
@@ -49,6 +49,7 @@ class App extends StatelessWidget {
         ),
         cardTheme: CardTheme(
           elevation: 0,
+
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(borderRadius),
           ),

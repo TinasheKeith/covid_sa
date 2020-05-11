@@ -9,10 +9,13 @@ import 'package:covid_sa/models/models.dart';
 class CovidBloc extends Bloc<CovidStatsEvent, CovidStatsState> {
   final CovidRepository covidRepository;
 
-  CovidBloc({@required this.covidRepository}) : assert(covidRepository != null);
+  CovidBloc({@required this.covidRepository})
+      : assert(covidRepository != null) {
+    add(FetchCovidStats());
+  }
 
   @override
-  CovidStatsState get initialState => CovidStatsEmpty();
+  CovidStatsState get initialState => CovidStatsLoading();
 
   @override
   Stream<CovidStatsState> mapEventToState(CovidStatsEvent event) async* {

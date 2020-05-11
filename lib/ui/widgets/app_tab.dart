@@ -10,11 +10,12 @@ class AppTab extends StatelessWidget {
   Widget build(BuildContext context) {
     return Tab(
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
-          Icon(icon),
+          Icon(icon, size: 24),
           SizedBox(height: 4),
-          Text(title),
+          Text(title, style: TextStyle(fontSize: 12),),
         ],
       ),
     );

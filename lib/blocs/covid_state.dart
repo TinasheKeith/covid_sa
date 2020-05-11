@@ -11,8 +11,6 @@ abstract class CovidStatsState extends Equatable {
   List<Object> get props => [];
 }
 
-class CovidStatsEmpty extends CovidStatsState {}
-
 class CovidStatsLoading extends CovidStatsState {}
 
 class CovidStatsLoaded extends CovidStatsState {

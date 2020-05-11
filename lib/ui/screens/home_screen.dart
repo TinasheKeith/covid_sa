@@ -1,4 +1,5 @@
 import 'package:covid_sa/ui/screens/news_tab.dart';
+import 'package:covid_sa/ui/screens/stats_tab.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:provider/provider.dart';
@@ -16,16 +17,16 @@ class _HomeScreenState extends State<HomeScreen>
 
   final List<Map> _tabs = [
     {
+      "icon": Icons.home,
+      "title": "Home",
+    },
+    {
       "icon": Icons.pie_chart,
       "title": "Stats",
     },
     {
       "icon": CupertinoIcons.news_solid,
       "title": "News",
-    },
-    {
-      "icon": CupertinoIcons.check_mark_circled_solid,
-      "title": "Assess",
     },
     {
       "icon": CupertinoIcons.check_mark_circled_solid,
@@ -67,7 +68,7 @@ class _HomeScreenState extends State<HomeScreen>
         controller: _tabController,
         children: <Widget>[
           Center(),
-          Center(),
+          StatsTab(),
           NewsTab(),
           Center(),
         ],

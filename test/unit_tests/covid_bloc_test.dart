@@ -60,7 +60,7 @@ void main() {
         act: (bloc) => bloc.add(FetchCovidStats()),
         skip: 0,
         expect: [
-          CovidStatsEmpty(),
+          CovidStatsLoading(),
           CovidStatsLoading(),
           CovidStatsLoaded(
             countriesSummary: covidStats,

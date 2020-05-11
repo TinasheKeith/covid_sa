@@ -8,13 +8,8 @@ import 'package:covid_sa/models/models.dart';
 import 'package:covid_sa/ui/widgets/image_card.dart';
 import 'package:covid_sa/ui/widgets/flare_animations/no_wifi.dart';
 
-class NewsTab extends StatefulWidget {
-  @override
-  _NewsTabState createState() => _NewsTabState();
-}
-
-class _NewsTabState extends State<NewsTab> {
-  openArticleUrl(String url) async {
+class NewsTab extends StatelessWidget {
+  openArticleUrl(String url, BuildContext context) async {
     Navigator.of(context).push(
       MaterialPageRoute(
         builder: (BuildContext context) => AppWebView(url: url),
@@ -35,7 +30,8 @@ class _NewsTabState extends State<NewsTab> {
                 title: newsArticles.articles[i].title,
                 subtitle: newsArticles.articles[i].source.name,
                 urlToImage: newsArticles.articles[i].urlToImage,
-                onTap: () => openArticleUrl(newsArticles.articles[i].url),
+                onTap: () =>
+                    openArticleUrl(newsArticles.articles[i].url, context),
               );
             },
           );
