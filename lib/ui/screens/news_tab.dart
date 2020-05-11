@@ -17,8 +17,7 @@ class _NewsTabState extends State<NewsTab> {
   openArticleUrl(String url) async {
     Navigator.of(context).push(
       MaterialPageRoute(
-        builder: (BuildContext context) =>
-            AppWebView(url: url),
+        builder: (BuildContext context) => AppWebView(url: url),
       ),
     );
   }
@@ -32,7 +31,7 @@ class _NewsTabState extends State<NewsTab> {
           return ListView.builder(
             itemCount: newsArticles.articles.length,
             itemBuilder: (BuildContext context, int i) {
-              return NetworkImageCard(
+              return ImageCard(
                 title: newsArticles.articles[i].title,
                 subtitle: newsArticles.articles[i].source.name,
                 urlToImage: newsArticles.articles[i].urlToImage,

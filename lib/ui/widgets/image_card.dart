@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
 
-class NetworkImageCard extends StatelessWidget {
+class ImageCard extends StatelessWidget {
   final String title;
   final String subtitle;
   final String urlToImage;
   final Function onTap;
 
-  NetworkImageCard(
-      {this.title, this.subtitle, @required this.urlToImage, this.onTap});
+  ImageCard({this.title, this.subtitle, @required this.urlToImage, this.onTap});
 
   @override
   Widget build(BuildContext context) {

@@ -27,12 +27,16 @@ class _HomeScreenState extends State<HomeScreen>
       "icon": CupertinoIcons.check_mark_circled_solid,
       "title": "Assess",
     },
+    {
+      "icon": CupertinoIcons.check_mark_circled_solid,
+      "title": "Assess",
+    },
   ];
 
   @override
   void initState() {
     super.initState();
-    _tabController = TabController(length: 3, vsync: this);
+    _tabController = TabController(length: 4, vsync: this);
   }
 
   @override
@@ -62,6 +66,7 @@ class _HomeScreenState extends State<HomeScreen>
       body: TabBarView(
         controller: _tabController,
         children: <Widget>[
+          Center(),
           Center(),
           NewsTab(),
           Center(),
