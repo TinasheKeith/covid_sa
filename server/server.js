@@ -23,7 +23,7 @@ const readFromDb = async () => {
   }
 };
 
-app.get("/stats", (req, res) => {
+app.get("/", (req, res) => {
   readFromDb()
     .then((jsonData) => {
       console.log(jsonData);
