@@ -27,6 +27,9 @@ class SouthAfricaStats {
 
   factory SouthAfricaStats.fromJson(Map data) {
     Map rsaStats = data["RSA"];
+
+    print("NATIONAL STATS IS ${rsaStats["National"]}");
+
     return SouthAfricaStats(
       national: National.fromJson(rsaStats["National"]),
       gp: GP.fromJson(rsaStats["GP"]),
@@ -44,11 +47,11 @@ class SouthAfricaStats {
 }
 
 class National {
-  final List<String> cases;
-  final List<String> tests;
-  final List<String> deaths;
-  final List<String> recoveries;
-  final List<String> linearRecoveries;
+  final List cases;
+  final List tests;
+  final List deaths;
+  final List recoveries;
+  final List linearRecoveries;
 
   National({
     this.cases,
@@ -70,13 +73,13 @@ class National {
 }
 
 abstract class Province {
-  final List<String> icu;
-  final List<String> cases;
-  final List<String> tests;
-  final List<String> deaths;
-  final List<String> hospital;
-  final List<String> recoveries;
-  final List<String> linearRecoveries;
+  final List icu;
+  final List cases;
+  final List tests;
+  final List deaths;
+  final List hospital;
+  final List recoveries;
+  final List linearRecoveries;
 
   Province({
     this.icu,
@@ -90,13 +93,13 @@ abstract class Province {
 }
 
 class GP extends Province {
-  final List<String> icu;
-  final List<String> tests;
-  final List<String> cases;
-  final List<String> deaths;
-  final List<String> hospital;
-  final List<String> recoveries;
-  final List<String> linearRecoveries;
+  final List icu;
+  final List tests;
+  final List cases;
+  final List deaths;
+  final List hospital;
+  final List recoveries;
+  final List linearRecoveries;
 
   GP({
     this.icu,
@@ -120,13 +123,13 @@ class GP extends Province {
 }
 
 class WC extends Province {
-  final List<String> icu;
-  final List<String> cases;
-  final List<String> tests;
-  final List<String> deaths;
-  final List<String> hospital;
-  final List<String> recoveries;
-  final List<String> linearRecoveries;
+  final List icu;
+  final List cases;
+  final List tests;
+  final List deaths;
+  final List hospital;
+  final List recoveries;
+  final List linearRecoveries;
 
   WC({
     this.icu,
@@ -150,13 +153,13 @@ class WC extends Province {
 }
 
 class KZN extends Province {
-  final List<String> icu;
-  final List<String> hospital;
-  final List<String> cases;
-  final List<String> tests;
-  final List<String> deaths;
-  final List<String> recoveries;
-  final List<String> linearRecoveries;
+  final List icu;
+  final List hospital;
+  final List cases;
+  final List tests;
+  final List deaths;
+  final List recoveries;
+  final List linearRecoveries;
 
   KZN({
     this.icu,
@@ -179,14 +182,14 @@ class KZN extends Province {
       );
 }
 
-class EC {
-  final List<String> icu;
-  final List<String> hospital;
-  final List<String> cases;
-  final List<String> tests;
-  final List<String> deaths;
-  final List<String> recoveries;
-  final List<String> linearRecoveries;
+class EC extends Province {
+  final List icu;
+  final List hospital;
+  final List cases;
+  final List tests;
+  final List deaths;
+  final List recoveries;
+  final List linearRecoveries;
 
   EC({
     this.cases,
@@ -209,14 +212,14 @@ class EC {
       );
 }
 
-class FS {
-  final List<String> icu;
-  final List<String> hospital;
-  final List<String> cases;
-  final List<String> tests;
-  final List<String> deaths;
-  final List<String> recoveries;
-  final List<String> linearRecoveries;
+class FS extends Province {
+  final List icu;
+  final List hospital;
+  final List cases;
+  final List tests;
+  final List deaths;
+  final List recoveries;
+  final List linearRecoveries;
 
   FS({
     this.hospital,
@@ -239,14 +242,14 @@ class FS {
       );
 }
 
-class MP {
-  final List<String> icu;
-  final List<String> hospital;
-  final List<String> cases;
-  final List<String> tests;
-  final List<String> deaths;
-  final List<String> recoveries;
-  final List<String> linearRecoveries;
+class MP extends Province {
+  final List icu;
+  final List hospital;
+  final List cases;
+  final List tests;
+  final List deaths;
+  final List recoveries;
+  final List linearRecoveries;
 
   MP({
     this.hospital,
@@ -270,13 +273,13 @@ class MP {
 }
 
 class LP {
-  final List<String> icu;
-  final List<String> hospital;
-  final List<String> cases;
-  final List<String> tests;
-  final List<String> deaths;
-  final List<String> recoveries;
-  final List<String> linearRecoveries;
+  final List icu;
+  final List hospital;
+  final List cases;
+  final List tests;
+  final List deaths;
+  final List recoveries;
+  final List linearRecoveries;
 
   LP({
     this.hospital,
@@ -299,14 +302,14 @@ class LP {
       );
 }
 
-class NW {
-  final List<String> icu;
-  final List<String> hospital;
-  final List<String> cases;
-  final List<String> tests;
-  final List<String> deaths;
-  final List<String> recoveries;
-  final List<String> linearRecoveries;
+class NW extends Province {
+  final List icu;
+  final List hospital;
+  final List cases;
+  final List tests;
+  final List deaths;
+  final List recoveries;
+  final List linearRecoveries;
 
   NW({
     this.icu,
@@ -329,14 +332,14 @@ class NW {
       );
 }
 
-class NC {
-  final List<String> icu;
-  final List<String> hospital;
-  final List<String> cases;
-  final List<String> tests;
-  final List<String> deaths;
-  final List<String> recoveries;
-  final List<String> linearRecoveries;
+class NC extends Province {
+  final List icu;
+  final List hospital;
+  final List cases;
+  final List tests;
+  final List deaths;
+  final List recoveries;
+  final List linearRecoveries;
 
   NC({
     this.hospital,
@@ -359,14 +362,14 @@ class NC {
       );
 }
 
-class NA {
-  final List<String> icu;
-  final List<String> hospital;
-  final List<String> cases;
-  final List<String> tests;
-  final List<String> deaths;
-  final List<String> recoveries;
-  final List<String> linearRecoveries;
+class NA extends Province {
+  final List icu;
+  final List hospital;
+  final List cases;
+  final List tests;
+  final List deaths;
+  final List recoveries;
+  final List linearRecoveries;
 
   NA({
     this.hospital,

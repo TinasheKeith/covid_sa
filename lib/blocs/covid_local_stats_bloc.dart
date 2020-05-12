@@ -10,7 +10,9 @@ class CovidLocalStatsBloc
     extends Bloc<CovidLocalStatsEvent, CovidLocalStatsState> {
   CovidLocalRepository covidLocalRepository;
 
-  CovidLocalStatsBloc({@required this.covidLocalRepository});
+  CovidLocalStatsBloc({@required this.covidLocalRepository}) {
+    add(FetchCovidLocalStats());
+  }
 
   @override
   CovidLocalStatsState get initialState => CovidLocalStatsLoading();
@@ -27,6 +29,7 @@ class CovidLocalStatsBloc
         yield CovidLocalStatsLoaded(southAfricaStats: southAfricaStats);
       } catch (err) {
         print(err.toString());
+        yield CovidLocalStatsError();
       }
     }
   }

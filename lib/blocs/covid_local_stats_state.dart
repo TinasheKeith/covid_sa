@@ -1,6 +1,8 @@
+import 'package:flutter/foundation.dart';
+
 import 'package:equatable/equatable.dart';
+
 import 'package:covid_sa/models/covid_stats_local.dart';
-import 'package:flutter/widgets.dart';
 
 abstract class CovidLocalStatsState extends Equatable {
   const CovidLocalStatsState();
@@ -9,10 +11,7 @@ abstract class CovidLocalStatsState extends Equatable {
   List<Object> get props => [];
 }
 
-class CovidLocalStatsLoading extends CovidLocalStatsState {
-  @override
-  List<Object> get props => [];
-}
+class CovidLocalStatsLoading extends CovidLocalStatsState {}
 
 class CovidLocalStatsLoaded extends CovidLocalStatsState {
   final SouthAfricaStats southAfricaStats;
