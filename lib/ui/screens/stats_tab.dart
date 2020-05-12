@@ -15,7 +15,8 @@ class StatsTab extends StatelessWidget {
       if (state is CovidStatsLoaded) {
         final CountriesSummary countriesSummary = state.countriesSummary;
         final Country southAfricaStats = countriesSummary.countrySummaries
-            .where((element) => element.countryCode == "ZA").toList()[0];
+            .where((country) => country.countryCode == "ZA")
+            .toList()[0];
 
         return ListView(
           children: <Widget>[
