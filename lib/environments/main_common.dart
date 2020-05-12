@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 import 'package:provider/provider.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:http/http.dart' show Client;
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:covid_sa/main.dart';
 import 'package:covid_sa/blocs/blocs.dart';
@@ -22,6 +22,12 @@ Future<void> mainCommon(String env) async {
 
   CovidRepository _covidRepository = CovidRepository(
     covidApiClient: CovidApiClient(
+      httpClient: Client(),
+    ),
+  );
+
+  CovidLocalRepository _covidLocalRepository = CovidLocalRepository(
+    covidApiClient: CovidApiLocalClient(
       httpClient: Client(),
     ),
   );
@@ -48,6 +54,10 @@ Future<void> mainCommon(String env) async {
           ),
           BlocProvider(
             create: (context) => CovidBloc(covidRepository: _covidRepository),
+          ),
+          BlocProvider(
+            create: (context) => CovidLocalStatsBloc(
+                covidLocalRepository: _covidLocalRepository),
           ),
         ],
         child: App(),

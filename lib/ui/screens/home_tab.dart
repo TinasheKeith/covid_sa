@@ -1,10 +1,15 @@
+import 'package:covid_sa/blocs/blocs.dart';
+
 import 'package:covid_sa/ui/widgets/info_card.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:covid_sa/blocs/covid_local_stats_state.dart';
+import 'package:covid_sa/ui/widgets/data_point.dart';
 
 class HomeTab extends StatelessWidget {
   _launchWhatsApp() async {
@@ -70,7 +75,8 @@ class HomeTab extends StatelessWidget {
                   children: <Widget>[
                     FlatButton.icon(
                       shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(12)),
+                        borderRadius: BorderRadius.circular(12),
+                      ),
                       onPressed: _launchWhatsApp,
                       icon: Icon(
                         FontAwesomeIcons.whatsapp,
@@ -85,7 +91,8 @@ class HomeTab extends StatelessWidget {
                     SizedBox(width: 5),
                     FlatButton.icon(
                       shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(12)),
+                        borderRadius: BorderRadius.circular(12),
+                      ),
                       onPressed: _launchDialer,
                       icon: Icon(
                         FontAwesomeIcons.phone,
@@ -103,7 +110,8 @@ class HomeTab extends StatelessWidget {
                     SizedBox(width: 5),
                     FlatButton.icon(
                       shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(12)),
+                        borderRadius: BorderRadius.circular(12),
+                      ),
                       onPressed: _launchWhatsApp,
                       icon: Icon(
                         FontAwesomeIcons.handsHelping,
@@ -120,6 +128,38 @@ class HomeTab extends StatelessWidget {
                 ),
               ],
             ),
+          ),
+          BlocBuilder<CovidLocalStatsBloc, CovidLocalStatsState>(
+            builder: (context, state) {
+              if (state is CovidLocalStatsLoaded) {
+                print(state.props);
+                return Container(
+                  child: InfoCard(
+                    title: "Currently in ICU",
+                    content: Column(
+                      children: <Widget>[
+                        Row(
+                          children: <Widget>[
+                            DataPoint(
+                              value:
+                                  int.parse(state.southAfricaStats.wc.icu.last),
+                              title: "Western Cape",
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                );
+              }
+              if (state is CovidLocalStatsLoading) {
+                return Center(
+                  child: CircularProgressIndicator(),
+                );
+              }
+              print("STATE IS ****** $state");
+              return FlutterLogo(size: 150);
+            },
           ),
         ],
       ),

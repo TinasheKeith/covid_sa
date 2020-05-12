@@ -1,11 +1,12 @@
-import 'package:covid_sa/ui/screens/home_tab.dart';
-import 'package:covid_sa/ui/screens/menu.dart';
-import 'package:covid_sa/ui/screens/news_tab.dart';
-import 'package:covid_sa/ui/screens/stats_tab.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+
 import 'package:provider/provider.dart';
+
+import 'package:covid_sa/ui/screens/menu.dart';
+import 'package:covid_sa/ui/screens/home_tab.dart';
+import 'package:covid_sa/ui/screens/news_tab.dart';
+import 'package:covid_sa/ui/screens/stats_tab.dart';
 
 import 'package:covid_sa/ui/widgets/app_tab.dart';
 
@@ -79,8 +80,8 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
               child: Scaffold(
                 key: _scaffoldKey,
                 appBar: AppBar(
-                  leading:
-                      IconButton(icon: Icon(Icons.settings, size: 24), onPressed: toggle),
+                  leading: IconButton(
+                      icon: Icon(Icons.settings, size: 24), onPressed: toggle),
                   title: Text(
                     Provider.of<String>(context),
                   ),
