@@ -4,3 +4,6 @@ export './covid_bloc.dart';
 export './news_bloc.dart';
 export './covid_event.dart';
 export './covid_state.dart';
+export './covid_local_stats_bloc.dart';
+export './covid_local_stats_event.dart';
+export './covid_local_stats_state.dart';
