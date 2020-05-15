@@ -17,7 +17,7 @@ class CovidApiLocalClient {
     print("RUNNING FETCH SA STATS");
 
     final statsResponse = await this.httpClient.get(
-          _baseUrl + "key=${ConfigReader.getCovidSaAPIKey()}",
+          _baseUrl,
         );
 
     if (statsResponse.statusCode != 200) {

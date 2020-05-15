@@ -14,6 +14,7 @@ const updateCovidStats = async () => {
   }
 };
 
+// temp
 updateCovidStats();
 
 const readFromDb = async () => {
@@ -28,7 +29,8 @@ const readFromDb = async () => {
 app.get("/", async (req, res) => {
   try {
     const jsonData = await readFromDb();
-    return res.status(200).json(jsonData);
+    res.set("Content-Type", "application/json");
+    res.status(200).json(jsonData);
   } catch (err) {
     console.log(err);
     return res.status(404).send(err);
