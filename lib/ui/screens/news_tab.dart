@@ -8,14 +8,6 @@ import 'package:covid_sa/models/models.dart';
 import 'package:covid_sa/ui/widgets/flare_animations/no_wifi.dart';
 
 class NewsTab extends StatelessWidget {
-  openArticleUrl(String url, BuildContext context) async {
-    Navigator.of(context).push(
-      MaterialPageRoute(
-        builder: (BuildContext context) => AppWebView(url: url),
-      ),
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<NewsBloc, NewsState>(
@@ -76,13 +68,22 @@ class NewsTab extends StatelessWidget {
 
 class NewsCard extends StatelessWidget {
   final Article article;
+  final Function onTap;
 
-  NewsCard({this.article});
+  NewsCard({this.article, this.onTap});
+
+  openArticleUrl(String url, BuildContext context) async {
+    Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (BuildContext context) => AppWebView(url: url),
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => ,
+      onTap: () => openArticleUrl(article.url, context),
       child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Card(
