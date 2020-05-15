@@ -44,3 +44,6 @@ app.*.map.json
 
 # Secrets
 /config
+
+#node_modules
+/server/node_modules

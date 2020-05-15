@@ -7,7 +7,7 @@ import 'package:covid_sa/models/models.dart';
 import 'package:covid_sa/config_reader.dart';
 
 class CovidApiLocalClient {
-  static final String _baseUrl = "http://corona-stats.mobi/api/json.2.0.php?";
+  static final String _baseUrl = "https://covid-sa-server.herokuapp.com/";
 
   final http.Client httpClient;
 
@@ -17,14 +17,11 @@ class CovidApiLocalClient {
     print("RUNNING FETCH SA STATS");
 
     final statsResponse = await this.httpClient.get(
-          _baseUrl + "key=${ConfigReader.getCovidSaAPIKey()}",
+          _baseUrl,
         );
 
-    print("RESPONSE IS ${statsResponse.statusCode}");
-    print("RESPONSE IS ${statsResponse.body}");
-    print("key=${ConfigReader.getCovidSaAPIKey()}");
-
     if (statsResponse.statusCode != 200) {
+      print(statsResponse.headers);
       throw Exception("Error getting stats");
     }
 
