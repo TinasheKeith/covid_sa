@@ -4,7 +4,6 @@ import 'package:flutter/foundation.dart';
 
 import 'package:http/http.dart' as http;
 import 'package:covid_sa/models/models.dart';
-import 'package:covid_sa/config_reader.dart';
 
 class CovidApiLocalClient {
   static final String _baseUrl = "https://covid-sa-server.herokuapp.com/";
