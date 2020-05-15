@@ -5,7 +5,7 @@ const axios = require("axios");
 const app = express();
 
 const updateCovidStats = async () => {
-  const url = "https://api.covid19api.com/summary";
+  const url = `http://corona-stats.mobi/api/json.2.0.php?key=${process.env.COVID_STATS_KEY}`;
   try {
     let response = await axios.get(url);
     await fs.writeJson("./database.json", response.data);
@@ -13,6 +13,8 @@ const updateCovidStats = async () => {
     console.log(err);
   }
 };
+
+updateCovidStats();
 
 const readFromDb = async () => {
   try {
@@ -23,19 +25,16 @@ const readFromDb = async () => {
   }
 };
 
-app.get("/", (req, res) => {
-  readFromDb()
-    .then((jsonData) => {
-      console.log(jsonData);
-      res.send(jsonData);
-      res.end();
-    })
-    .catch((err) => {
-      console.log(err);
-      res.status(404);
-    });
+app.get("/", async (req, res) => {
+  try {
+    const jsonData = await readFromDb();
+    return res.status(200).json(jsonData);
+  } catch (err) {
+    console.log(err);
+    return res.status(404).send(err);
+  }
 });
 
-const PORT = process.env.port || 4000;
+const PORT = process.env.PORT || 4000;
 
 app.listen(PORT, () => console.log(`server running on port ${PORT}`));
