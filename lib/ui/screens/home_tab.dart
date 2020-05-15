@@ -129,38 +129,6 @@ class HomeTab extends StatelessWidget {
               ],
             ),
           ),
-          BlocBuilder<CovidLocalStatsBloc, CovidLocalStatsState>(
-            builder: (context, state) {
-              if (state is CovidLocalStatsLoaded) {
-                print(state.props);
-                return Container(
-                  child: InfoCard(
-                    title: "Currently in ICU",
-                    content: Column(
-                      children: <Widget>[
-                        Row(
-                          children: <Widget>[
-                            DataPoint(
-                              value:
-                                  int.parse(state.southAfricaStats.wc.icu.last),
-                              title: "Western Cape",
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
-                  ),
-                );
-              }
-              if (state is CovidLocalStatsLoading) {
-                return Center(
-                  child: CircularProgressIndicator(),
-                );
-              }
-              print("STATE IS ****** $state");
-              return FlutterLogo(size: 150);
-            },
-          ),
         ],
       ),
     );

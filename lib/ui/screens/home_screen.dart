@@ -34,16 +34,12 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
       "icon": CupertinoIcons.news_solid,
       "title": "News",
     },
-    {
-      "icon": CupertinoIcons.check_mark_circled_solid,
-      "title": "Assess",
-    },
   ];
 
   @override
   void initState() {
     super.initState();
-    _tabController = TabController(length: 4, vsync: this);
+    _tabController = TabController(length: 3, vsync: this);
     _animationController = AnimationController(
       vsync: this,
       duration: Duration(milliseconds: 250),
@@ -103,7 +99,6 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                     HomeTab(),
                     StatsTab(),
                     NewsTab(),
-                    Center(),
                   ],
                 ),
               ),

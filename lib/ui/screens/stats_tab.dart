@@ -1,5 +1,6 @@
 import 'package:covid_sa/ui/widgets/flare_animations/no_wifi.dart';
 import 'package:covid_sa/ui/widgets/info_card.dart';
+import 'package:covid_sa/ui/widgets/stats_data_display.dart';
 import 'package:flutter/material.dart';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -65,8 +66,76 @@ class StatsTab extends StatelessWidget {
                     title2: "New Recovered",
                     value2: southAfricaStats.newRecovered,
                   ),
+                  
                 ],
               ),
+            ),
+            BlocBuilder<CovidLocalStatsBloc, CovidLocalStatsState>(
+              builder: (context, state) {
+                if (state is CovidLocalStatsLoaded) {
+                  print(state.props);
+                  return Column(
+                    children: [
+                      InfoCard(
+                        title: "Western Cape",
+                        content: StatsDataDisplay(
+                            province: state.southAfricaStats.wc),
+                      ),
+                      InfoCard(
+                        title: "Gauteng",
+                        content: StatsDataDisplay(
+                            province: state.southAfricaStats.gp),
+                      ),
+                      InfoCard(
+                        title: "Eastern Cape",
+                        content: StatsDataDisplay(
+                            province: state.southAfricaStats.ec),
+                      ),
+                      InfoCard(
+                        title: "Kwazulu Natal",
+                        content: StatsDataDisplay(
+                            province: state.southAfricaStats.kzn),
+                      ),
+                      InfoCard(
+                        title: "Free State",
+                        content: StatsDataDisplay(
+                            province: state.southAfricaStats.fs),
+                      ),
+                      InfoCard(
+                        title: "Northern Cape",
+                        content: StatsDataDisplay(
+                            province: state.southAfricaStats.nc),
+                      ),
+                      InfoCard(
+                        title: "Mpumalanga",
+                        content: StatsDataDisplay(
+                            province: state.southAfricaStats.mp),
+                      ),
+                      InfoCard(
+                        title: "Limpopo",
+                        content: StatsDataDisplay(
+                            province: state.southAfricaStats.lp),
+                      ),
+                      InfoCard(
+                        title: "North West",
+                        content: StatsDataDisplay(
+                            province: state.southAfricaStats.nw),
+                      ),
+                        InfoCard(
+                        title: "NA",
+                        content: StatsDataDisplay(
+                            province: state.southAfricaStats.na),
+                      ),
+                    ],
+                  );
+                }
+                if (state is CovidLocalStatsLoading) {
+                  return Center(
+                    child: CircularProgressIndicator(),
+                  );
+                }
+                return FlutterLogo(size: 150);
+              },
             ),
           ],
         );
