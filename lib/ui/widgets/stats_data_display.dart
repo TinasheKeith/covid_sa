@@ -23,22 +23,22 @@ class StatsDataDisplay extends StatelessWidget {
               : 0,
         ),
         DataPointRow(
-          title: "Hospital",
-          value: (province.hospital != null && province.hospital.length > 0)
-              ? int.parse(province.hospital.last)
-              : 0,
-          title2: "ICU",
-          value2: (province.icu != null && province.icu.length > 0)
+          title: "ICU",
+          value: (province.icu != null && province.icu.length > 0)
               ? int.parse(province.icu.last)
+              : 0,
+          title2: "Hospital",
+          value2: (province.hospital != null && province.hospital.length > 0)
+              ? int.parse(province.hospital.last)
               : 0,
         ),
         DataPointRow(
-          title: "Tests",
-          value: (province.tests != null && province.tests.length > 0)
+          title2: "Tests",
+          value2: (province.tests != null && province.tests.length > 0)
               ? int.parse(province.tests.last)
               : 0,
-          title2: "Recoveries",
-          value2: province.recoveries != null
+          title: "Recoveries",
+          value: province.recoveries != null
               ? int.parse(province.recoveries.last)
               : 0,
         ),

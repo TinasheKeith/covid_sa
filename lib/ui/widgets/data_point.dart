@@ -9,15 +9,14 @@ class DataPoint extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-      mainAxisSize: MainAxisSize.max,
+      mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         Text(
           value.toString(),
-          style: Theme.of(context)
-              .textTheme
-              .subtitle1
-              .copyWith(color: Color(0xFF54556E)),
+          style: Theme.of(context).textTheme.subtitle1.copyWith(
+                color: Color(0xFF54556E),
+              ),
         ),
         SizedBox(height: 8),
         Text(title, style: Theme.of(context).textTheme.subtitle2),
