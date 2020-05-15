@@ -272,7 +272,7 @@ class MP extends Province {
       );
 }
 
-class LP {
+class LP extends Province {
   final List icu;
   final List hospital;
   final List cases;

@@ -9,13 +9,13 @@ class AppTab extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Tab(
-      child: Column(
+      child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
           Icon(icon, size: 24),
-          SizedBox(height: 4),
-          Text(title, style: TextStyle(fontSize: 12),),
+          SizedBox(width: 8),
+          Text(title, style: TextStyle(fontSize: 14),),
         ],
       ),
     );
