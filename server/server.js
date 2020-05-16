@@ -1,6 +1,7 @@
 const fs = require("fs-extra");
-const express = require("express");
 const axios = require("axios");
+const cron = require("node-cron");
+const express = require("express");
 
 const app = express();
 
@@ -14,8 +15,10 @@ const updateCovidStats = async () => {
   }
 };
 
-// temp
-updateCovidStats();
+cron.schedule("01 * * * *", () => {
+  updateCovidStats();
+  console.log("running cron job");
+});
 
 const readFromDb = async () => {
   try {
