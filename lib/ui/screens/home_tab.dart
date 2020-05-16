@@ -53,14 +53,14 @@ class HomeTab extends StatelessWidget {
                     ),
                   ],
                 ),
-                SizedBox(
-                  width: 100,
-                  height: 150,
-                  child: SvgPicture.asset(
-                    "assets/images/house.svg",
-                    semanticsLabel: "stay home.",
-                  ),
-                ),
+                // SizedBox(
+                //   width: 100,
+                //   height: 150,
+                //   child: SvgPicture.asset(
+                //     "assets/images/house.svg",
+                //     semanticsLabel: "stay home.",
+                //   ),
+                // ),
               ],
             ),
           ),
